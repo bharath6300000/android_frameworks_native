@@ -53,7 +53,7 @@ std::shared_ptr<HalWrapper> connectHal(std::shared_ptr<CallbackScheduler> schedu
         return nullptr;
     }
 
-      sp<Aidl::IVibrator> aidlHal = waitForVintfService<Aidl::IVibrator>();
+    sp<Aidl::IVibrator> aidlHal = waitForVintfService<Aidl::IVibrator>();
     if (aidlHal) {
         ALOGV("Successfully connected to Vibrator HAL AIDL service.");
         return std::make_shared<AidlHalWrapper>(std::move(scheduler), aidlHal);
